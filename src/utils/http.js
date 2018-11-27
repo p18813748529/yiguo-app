@@ -14,5 +14,6 @@ export default function http(options){
         ...obj,
         baseURL: API.SAT_HOST,
         timeout: 8000,
+        headers: options.headers
     });
 }

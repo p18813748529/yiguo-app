@@ -28,23 +28,6 @@
   ],
   "devDependencies": {
     "node-sass": "^4.10.0"
-  },
-  "proxy": {
-    "/api": {
-      "target": "http://article.m.yiguo.com",
-      "changeOrigin": true
-    },
-    "/Category": {
-      "target": "http://article.m.yiguo.com",
-      "changeOrigin": true
-    },
-    "/Home": {
-      "target": "http://article.m.yiguo.com",
-      "changeOrigin": true
-    },
-    "/ygop/api": {
-      "target": "http://article.m.yiguo.com",
-      "changeOrigin": true
-    }
   }
+
 }
