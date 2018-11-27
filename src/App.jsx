@@ -20,7 +20,6 @@ export default class App extends Component{
                 <Switch>
 
                     <Route path="/" exact render={()=>{
-                        //重定向
                         return <Redirect to="/home"/>
                     }}/>
 
@@ -37,7 +36,6 @@ export default class App extends Component{
                     <Route path="/404"  component={NotFind}/>
 
                     <Route render={()=>{
-                        //重定向
                         return <Redirect to="/404"/>
                     }}/>
                 </Switch>
