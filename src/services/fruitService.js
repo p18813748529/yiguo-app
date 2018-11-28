@@ -1,6 +1,29 @@
 import http from "../utils/http"
 import API from "../api"
 
+export function getHomeData(){
+    new Promise((resolve,reject)=>{
+        http({
+            url: API.HOME_API,
+            method: "POST",
+            data: {
+                body: {
+                    operationType: 0,
+                    previewTime: ""
+                },
+                head: {
+                    cityCode: "2",
+                    cityId: "eabbe02f-59e0-46e6-90e7-cd8a89dbb98f",
+                    districtId: "c1153b9b-b21e-4761-9daf-99735a87f8d8",
+                    loginToken: "",
+                    token: "",
+                    version: "h5"
+                }
+            }
+        });
+    })
+}
+
 export function getCommodityInfo(){
     new Promise((resolve,reject)=>{
         http({

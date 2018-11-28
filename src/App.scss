@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+html, body, #app{
+    width: 100%;
+    height: 100%;
+    color: #333;
+}
+
+#app{
+    .tabs-wrap{
+        z-index: 99;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 51px;
+        width: 100%;
+        background: #fff;
+        padding: 0 11px;
+        box-sizing: border-box;
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #ddd;
+            width: 100%;
+            height: 1px;
+            transform: scaleY(.5);
+            transform-origin: 0 0;
+        }
+        .tabs{
+            width: 100%;
+            height: 51px;
+            .tab{
+                width: 20%;
+                float: left;
+                display: inline-block;
+                position: relative;
+                height: 100%;
+                font-size: 12px;
+                text-align: center;
+                color: #8d8a8a;
+                padding-top: 34px;
+                box-sizing: border-box;
+                .icon{
+                    display: inline-block;
+                    position: absolute;
+                    top: 6px;
+                    left: 50%;
+                    margin-left: -16px;
+                    width: 32px;
+                    height: 24px;
+                    background: url("./assets/nav_home.png") 50% no-repeat;
+                    background-size: 100% 100%;
+                }
+                .icon-home{
+                    background-image: url("./assets/nav_home.png");
+                }
+                .icon-sort{
+                    background-image: url("./assets/nav_classify.png");
+                }
+                .icon-eat{
+                    background-image: url("./assets/nav_eat.png");
+                }
+                .icon-car{
+                    background-image: url("./assets/nav_list.png");
+                }
+                .icon-mine{
+                    background-image: url("./assets/nav_user.png");
+                }
+                &.active{
+                    .icon-home{
+                        background-image: url("./assets/nav_home_active.png");
+                    }
+                    .icon-sort{
+                        background-image: url("./assets/nav_classify_active.png");
+                    }
+                    .icon-car{
+                        background-image: url("./assets/nav_list_active.png");
+                    }
+                    .icon-mine{
+                        background-image: url("./assets/nav_user_active.png");
+                    }
+                }
+            }
+        }
+    }
+    .page{
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 49px;
+        position: absolute;
+        background: #fff;
+        .subpage{
+            bottom: 0;
+            z-index: 5;
+        }
+    }
+}
+#home{
+    background: palegoldenrod;
+}
+#sort{
+    background: palegreen;
+}
+#eat{
+    background: paleturquoise;
+}
+#car{
+    background: palevioletred;
+}
+#mine{
+    background: peru;
+}

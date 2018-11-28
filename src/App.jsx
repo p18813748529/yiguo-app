@@ -8,14 +8,14 @@ import Car from './pages/car/Car.jsx'
 import Mine from './pages/mine/Mine.jsx'
 import NotFind from './pages/NotFind.jsx'
 
-import './App.css'
+import './App.scss'
 
 export default class App extends Component{
 
     render(){
         return (
             <Router>
-            <div className="app">
+            <div id="app">
 
                 <Switch>
 
@@ -39,13 +39,30 @@ export default class App extends Component{
                         return <Redirect to="/404"/>
                     }}/>
                 </Switch>
-                <nav className="tabs">
-                    <Link className="tab" to="/home">首页</Link>
-                    <Link className="tab" to="/sort">分类</Link>
-                    <Link className="tab" to="/eat">吃饭吧</Link>
-                    <Link className="tab" to="/car">购物车</Link>
-                    <Link className="tab" to="/mine">我的易果</Link>
-                </nav>
+                <div className="tabs-wrap">
+                    <nav className="tabs">
+                        <Link className="tab" to="/home">
+                            <i className="icon icon-home"></i>
+                            <span>首页</span>
+                        </Link>
+                        <Link className="tab" to="/sort">
+                            <i className="icon icon-sort"></i>
+                            <span>分类</span>
+                        </Link>
+                        <Link className="tab" to="/eat">
+                            <i className="icon icon-eat"></i>
+                            <span>吃饭吧</span>
+                        </Link>
+                        <Link className="tab" to="/car">
+                            <i className="icon icon-car"></i>
+                            <span>购物车</span>
+                        </Link>
+                        <Link className="tab" to="/mine">
+                            <i className="icon icon-mine"></i>
+                            <span>我的易果</span>
+                        </Link>
+                    </nav>
+                </div>
             </div>
             </Router>
         )
