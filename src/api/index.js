@@ -7,10 +7,13 @@ const HOME_API = "/api/home/TemplateComponent/GetTemplateComponentInfo";
 
 const COMMODTYINFO_API = "/api/commodityapi/Commodity/GetCommodityInfo";
 
+//请求详情页
+const PRATICULARS_API='/api/commodityapi/Commodity/GetAllCategory';
 export default {
     SAT_HOST,
     UAT_HOST,
     PRO_HOST,
     HOME_API,
-    COMMODTYINFO_API
+    COMMODTYINFO_API,
+    PRATICULARS_API
 }

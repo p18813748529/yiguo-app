@@ -75,3 +75,43 @@ export function getCommodityInfo(){
 //         'appName': '3000025'
 //     }
 // });
+
+
+export function getParticulars(){
+   return new Promise((resolve,reject)=>{
+           http({
+               url:API.PRATICULARS_API,
+               method:"POST",
+               data:{
+                   Body:'',
+                   Head:{
+  
+                    CityCode: "512",
+                    CityId: "0540d74e-0ffb-4a3a-ab79-ec590dd49947",
+                    DeviceId: "6f9db822fa0ebdb1265ef4d40cad71ab",
+                    DistrictId: "3d93cd33-6973-4590-a95d-1669d31eb6fd",
+                    LoginToken: "",
+                    MobileOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+                    Token: ""
+                   }
+               },
+               headers: {  
+                'appName': '3000025'
+              }
+           })
+           .then(({ data, status }) => {
+            if (status != 200)
+              //请求失败
+              return;
+            //请求成功
+           
+            resolve(data.Data.CategoryList);
+            console.log(data.Data.CategoryList)
+            
+            
+          })
+          .catch((error) => {
+            //请求失败
+          });
+    })
+}

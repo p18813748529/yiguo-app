@@ -1,3 +1,65 @@
 #sort{
-    
+    .nav{
+      display: flex;
+      width: 100%;
+      height: 34px;
+      justify-content: space-around;
+      align-items: center;
+      background: #ffff;
+        .nav-left{
+          img{
+            width: 30px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            left: 20px;
+            top: 2px;
+            
+          }
+          input{
+               width: 290px;
+               height: 26px;
+               outline: none;
+               border: none;
+               background: #f4f4f4;
+               border-radius: 6px;
+               padding-left: 30px;
+               color: #757575;
+          }
+        }
+        .nav-right{
+           .search{
+               color: #11b57c;
+           }
+        }
+    }
+    .banner{
+      width: 100%;
+      height: 100%;
+      background: red;
+      display: flex;
+    .swiper-wrapper{
+      width: 75px;
+      background: cadetblue;
+      .swiper-slide{
+        height: 48px;
+       
+      }
+    }
+    .banner-right{
+        flex: 1;
+        .arr-page{
+           height: 79%;
+          .item-Cate{
+            height: 90px;
+            .item-Childs{
+              height: 90px;
+            }
+          }
+          
+        }
+    }
+  }
+
 }
