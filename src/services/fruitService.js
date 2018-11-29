@@ -2,7 +2,7 @@ import http from "../utils/http"
 import API from "../api"
 
 export function getHomeData(){
-    new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject)=>{
         http({
             url: API.HOME_API,
             method: "POST",
@@ -19,6 +19,12 @@ export function getHomeData(){
                     token: "",
                     version: "h5"
                 }
+            }
+        })
+        .then(({data,status})=>{
+            if(status===200){
+                console.log(data.Data)
+                resolve(data.Data);
             }
         });
     })
