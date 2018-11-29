@@ -1,3 +1,230 @@
 #mine{
-    
+    background: #f4f4f4;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 51px;
+    .header{
+        position: relative;
+        width: 100%;
+        height: 6.44rem;
+        background: #2dd282 url(//img06.yiguoimg.com/d/web/180517/01262/143351/bgimg.jpg) 100% 100%;
+        background-size: 100% 100%;
+        padding: 0 0rem 1.2rem 0rem;
+        box-sizing: border-box;
+        .headerImg {
+            position: relative;
+            display: inline-block;
+            height: 2.26rem;
+            margin-top: .9rem;
+            padding: 0 .32rem 0 2.85rem;
+            box-sizing: border-box;
+            .imgBorder {
+                display: inline-block;
+                position: absolute;
+                left: 0.5rem;
+                top: 0;
+                border: .13rem solid rgba(255,255,255,.5);
+                width: 2.26rem;
+                height: 2.26rem;
+                border-radius: 50%;
+                background: rgba(255,255,255,.5);
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0rem;
+                    width: 2.26rem;
+                    height: 2.26rem;
+                    border-radius: 50%;
+                }
+            }
+            .name {
+                display: inline-block;
+                text-align: left;
+                color: #fff;
+                font-size: .52rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: 1.7rem;
+                padding: .34rem 0 0 .8rem;
+            }
+        }
+        .setting{
+            position: absolute;
+            top: .36rem;
+            right: .5rem;
+            display: inline-block;
+            width: .55rem;
+            height: .61rem;
+            background: url(//img07.yiguoimg.com/d/web/180508/01319/184003/setting.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .account{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1.78rem;
+            background: white;
+            padding: .3rem .3rem .3rem .3rem;
+            box-sizing: border-box;
+            .list {
+                float: left;
+                width: 50%;
+                height: 100%;
+                text-align: center;
+                span {
+                    display: block;
+                    &.num {
+                        font-size: .5rem;
+                        color: #0e9f4e;
+                        em {
+                            font-size: .4rem;
+                            font-style: normal;
+                        }
+                    }
+                    &.txt {
+                        font-size: .32rem;
+                        color: #333333;
+                    }
+                }
+            }
+        }
+    }
+    .list-tab{
+        position: relative;
+        width: 100%;
+        background: #fff;
+        height: 2.7rem;
+        margin: .3rem 0;
+        ul {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            li{
+                &.fourLi {
+                    position: relative;
+                    float: left;
+                    width: 20%;
+                    height: 100%;
+                }
+                &.border-left{
+                    .pointRight {
+                        position: absolute;
+                        top: 0.05rem;
+                        left: 0;
+                        display: inline-block;
+                        width: .16rem;
+                        height: 100%;
+                        background: url(//img07.yiguoimg.com/d/web/180313/01318/155922/xian.png) no-repeat;
+                        background-size: 100% 100%;
+                    }
+                    a{
+                        .icon {
+                            width: .9rem;
+                            height: .9rem;
+                            background: url(//img07.yiguoimg.com/d/web/180315/01315/162344/allorder.png) no-repeat;
+                            margin-left: -.45rem;
+                            background-size: 100% 100%;
+                        }
+                        .goPage {
+                            display: inline-block;
+                            width: .15rem;
+                            height: .24rem;
+                            background: url(//img05.yiguoimg.com/d/web/180313/01318/155922/gopage2.png) no-repeat;
+                            background-size: .15rem .24rem;
+                            vertical-align: middle;
+                            margin-left: .1rem;
+                        }
+                    }
+                }
+                a {
+                    display: inline-block;
+                    font-size: .36rem;
+                    color: #333;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    padding-top: 1.73rem;
+                    box-sizing: border-box;
+                    .icon{
+                        width: .74rem;
+                        height: auto;
+                        margin-left: -.37rem;
+                        position: absolute;
+                        left: 50%;
+                        top: .8rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .line-top{
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+    }
+    .line-bottom{
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+        }
+    }
+    .testList {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        margin-bottom: .3rem;
+        .list {
+            position: relative;
+            float: left;
+            width: 25%;
+            height: 2.7rem;
+            a {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                padding-top: 1.7rem;
+                text-align: center;
+                box-sizing: border-box;
+                color: #333;
+                font-size: .36rem;
+                .icon {
+                    width: 1.08rem;
+                    height: 1.08rem;
+                    margin-left: -.504rem;
+                    display: inline-block;
+                    position: absolute;
+                    top: .6rem;
+                    left: 50%;
+                }
+            }
+        }
+    }
 }

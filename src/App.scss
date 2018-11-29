@@ -6,12 +6,25 @@ a{
     text-decoration: none;
     color: #000;
 }
-html, body, #app{
+html, body, #root, #app{
     width: 100%;
     height: 100%;
     color: #333;
 }
-
+html{
+    font-size: 33.3333px;
+}
+li{
+    list-style: none;
+}
+.clear_fix:after{
+	content: "";
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	clear: both;
+}
 #app{
     .tabs-wrap{
         z-index: 99;
@@ -117,5 +130,5 @@ html, body, #app{
     background: palevioletred;
 }
 #mine{
-    background: peru;
+    // background: peru;
 }

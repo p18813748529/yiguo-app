@@ -1,9 +1,19 @@
 import React from "react"
 export default function(props){
+    let {bulletComponentList,commonInfo,templateComponentList} = props.data;
+    let carouselPictures = [],
+        adPictures = [],
+        navComponentList = [],
+        fastReportsList = []
+    if(templateComponentList){
+        carouselPictures = templateComponentList[0].carouselPictures;
+        adPictures = templateComponentList[0].adPictures;
+        navComponentList = templateComponentList[0].navComponentList;
+        fastReportsList = templateComponentList[0].fastReportsList;
+    }
     return (
         <div id="home">
-            <h1>这是首页</h1>
-            <div className="first-screen-top">
+            <div className="first-screen-top" onClick={props.search}>
                 <div className="first-screen-search">
                     <a href="javascript:;" className="btn"></a>
                 </div>
@@ -12,51 +22,53 @@ export default function(props){
                     <i className="arrow"></i>
                 </a>
             </div>
-            {/* <div className="swiper-container">
-                <div className="swiper-wrapper first-screen-banner">
-                    <div className="swiper-slide">
-                        <img src="https://img13.yiguoimg.com/d/items/2018/181126/9288734540604794_1125x652.jpg?w=1125&amp;h=652"></img>
+            <div className="first-screen-banner">
+                <div className="swiper-container swiper-container-banner">
+                    <div className="swiper-wrapper">
+                        {
+                            carouselPictures.map((item,index)=>{
+                                return (
+                                    <div key={index} className='swiper-slide'>
+                                        <img src={item.pictureUrl}/>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                    <div className="swiper-slide">slider2</div>
-                    <div className="swiper-slide">slider3</div>
-                </div>
-            </div> */}
-            {/* <div className="swiper-container swiper-container-banner swiper-container-horizontal">
-                <div className="swiper-wrapper">
-                    <div className="swiper-slide swiper-slide-duplicate">
-                        <img src="https://img13.yiguoimg.com/d/items/2018/181126/9288734540604794_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide">
-                        <img src="https://img14.yiguoimg.com/d/items/2018/181124/9288734477821304_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide">
-                        <img src="https://img11.yiguoimg.com/d/items/2018/181126/9288734547256698_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide swiper-slide-prev">
-                        <img src="https://img12.yiguoimg.com/d/items/2018/181127/9288734594606459_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide swiper-slide-active">
-                        <img src="https://img09.yiguoimg.com/d/items/2018/181123/9288734465041783_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide swiper-slide-next">
-                        <img src="https://img10.yiguoimg.com/d/items/2018/181126/9288734547223930_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide">
-                        <img src="https://img13.yiguoimg.com/d/items/2018/181126/9288734540604794_1125x652.jpg?w=1125&amp;h=652"/>
-                    </div>
-                    <div className="swiper-slide swiper-slide-duplicate">
-                        <img src="https://img14.yiguoimg.com/d/items/2018/181124/9288734477821304_1125x652.jpg?w=1125&amp;h=652"/>
+                    <div className="swiper-pagination swiper-pagination-bullets">
                     </div>
                 </div>
-                <div className="swiper-pagination swiper-pagination-bullets">
-                    <span className="swiper-pagination-bullet"></span>
-                    <span className="swiper-pagination-bullet"></span>
-                    <span className="swiper-pagination-bullet"></span>
-                    <span className="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-                    <span className="swiper-pagination-bullet"></span>
-                    <span className="swiper-pagination-bullet"></span>
+            </div>
+            <div className="first-screen-ad">
+                <img src={adPictures[0]&&adPictures[0].pictureUrl}/>
+            </div>
+            <div className="first-screen-menu clear_fix">
+                {
+                    navComponentList.map((item,index)=>{
+                        return (
+                            <a key={index} href="javascript:;" className="one">
+                                <i>
+                                    <img src={item.pictureUrl}/>
+                                </i>
+                                <p>{item.navName}</p>
+                            </a>
+                        )
+                    })
+                }
+            </div>
+            <div className="first-screen-news"><i className="title"></i>
+                <div className="swiper-container swiper-container-news">
+                    <div className="swiper-wrapper">
+                        {
+                            fastReportsList.map((item,index)=>{
+                                return (
+                                    <div key={index} className="swiper-slide">{item.fastReportTitle}</div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }
