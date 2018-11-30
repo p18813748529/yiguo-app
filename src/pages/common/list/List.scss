@@ -1,0 +1,109 @@
+#productList{
+    width: 100%;
+    .navList{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1.36rem;
+        background: #fff;
+        overflow: hidden;
+        z-index: 100;
+        box-sizing: border-box;
+        .list{
+            float: left;
+            width: 33.3333%;
+            font-size: .4rem;
+            padding: .36rem 0;
+            text-align: center;
+            color: #808080;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+    }
+    .pruductShow{
+        padding-top: 1.36rem;
+        .productContent{
+            z-index: 10;
+            position: relative;
+            padding: .5rem .32rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            background: #fff;
+            .img{
+                position: relative;
+                float: left;
+                width: 3.47rem;
+                img{
+                    width: 3.47rem;
+                    height: 3.47rem;
+                }
+            }
+            .inforPro{
+                float: right;
+                width: 8rem;
+                .title{
+                    font-size: .46rem;
+                    color: #333;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    line-height: .6rem;
+                }
+                .text{
+                    font-size: .36rem;
+                    color: #808080;
+                    padding: .3rem 0 .3rem;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .label{
+                    font-size: .36rem;
+                    line-height: .36rem;
+                    padding: .13rem .2rem .11rem;
+                    border: 1px solid #11B57C;
+                    border-radius: 0.12rem 0 0.12rem 0;
+                    font-style: normal;
+                    color: #11B57C;
+                    background: #fff;
+                    display: block;
+                }
+                .price{
+                    position: relative;
+                    height: .8rem;
+                    padding: .3rem 0;
+                    z-index: 10;
+                    line-height: .8rem;
+                    // span{
+                    //     display: inline-block;
+                    // }
+                    .priceRed{
+                        font-size: .46rem;
+                        color: #fd3d3d;
+                        padding-right: .45rem;
+                        line-height: .8rem;
+                    }
+                    .standard{
+                        font-size: .34rem;
+                        color: #808080;
+                        line-height: .8rem;
+                        padding-right: .2rem;
+                    }
+                    .addCart{
+                        z-index: 100;
+                        position: absolute;
+                        right: .5rem;
+                        top: .3rem;
+                        width: .8rem;
+                        height: .8rem;
+                        background: url(../../../assets/add.png) no-repeat;
+                        background-size: 100% 100%;
+                    }
+                }
+            }
+        }
+    }
+}
