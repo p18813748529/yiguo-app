@@ -15,6 +15,8 @@ const EAT_GLOBAL_API = "/Category/GetListByGlobalType";
 const CAR_INFO_API = "/api/shopcart/CartInfo/GetCartInfo";
 const GET_GUESS_API = "/api/commodityapi/Commodity/GetGuessRecommentCommodity";
 
+//请求详情页
+const PRATICULARS_API='/api/commodityapi/Commodity/GetAllCategory';
 export default {
     SAT_HOST,
     UAT_HOST,
@@ -24,5 +26,6 @@ export default {
     EAT_BANNERS_API,
     EAT_GLOBAL_API,
     CAR_INFO_API,
-    GET_GUESS_API
+    GET_GUESS_API,
+    PRATICULARS_API
 }
