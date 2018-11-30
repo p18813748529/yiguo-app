@@ -6,13 +6,17 @@ export default class Home extends Component{
     constructor(props){
         super();
         this.state = {
-            data: {}
+            data: {},
+            refresh: false
         }
     }
     render(){
-        let {data} = this.state;
+        let {data,refresh} = this.state;
+        let dom = (<HomeUI data={data} search={this.searchAction.bind(this)}/>);
         return(
-            <HomeUI data={data} search={this.searchAction.bind(this)}/>
+            <div id="home" ref="home">
+                <HomeUI data={data} refresh={refresh} search={this.searchAction.bind(this)}/>
+            </div>
         )
     }
     componentDidMount(){
@@ -28,12 +32,13 @@ export default class Home extends Component{
                     },
                     loop: true
                 })
+                this.setState({
+                    refresh: !this.state.refresh
+                })
             })
         })
-        
     }
     searchAction(){
-        console.log(this.props)
         this.props.history.push("/sort");
     }
 }

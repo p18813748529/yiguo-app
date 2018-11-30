@@ -7,13 +7,14 @@ export default class Car extends Component{
         super();
         this.state = {
             carInfo: {},
-            commodityList: []
+            commodityList: [],
+            refresh: false
         }
     }
     render(){
-        let {carInfo,commodityList} = this.state;
+        let {carInfo,commodityList,refresh} = this.state;
         return(
-            <CarUI data={{carInfo,commodityList}}/>
+            <CarUI data={{carInfo,commodityList,refresh}}/>
         )
     }
     componentDidMount(){
@@ -21,12 +22,20 @@ export default class Car extends Component{
         .then(carInfo=>{
             this.setState({
                 carInfo
+            },()=>{
+                this.setState({
+                    refresh: !this.state.refresh
+                })
             })
         })
         getGuess()
         .then(commodityList=>{
             this.setState({
                 commodityList
+            },()=>{
+                this.setState({
+                    refresh: !this.state.refresh
+                })
             })
         })
     }

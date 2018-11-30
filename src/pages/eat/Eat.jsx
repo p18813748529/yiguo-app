@@ -7,13 +7,14 @@ export default class Eat extends Component{
         super();
         this.state = {
             banners: [],
-            list: []
+            list: [],
+            refresh: false
         }
     }
     render(){
-        let {banners,list} = this.state;
+        let {banners,list,refresh} = this.state;
         return(
-            <EatUI data = {{banners,list}}/>
+            <EatUI data = {{banners,list,refresh}}/>
         )
     }
     componentDidMount(){
@@ -28,6 +29,10 @@ export default class Eat extends Component{
             console.log(articleList.List)
             this.setState({
                 list: articleList.List
+            },()=>{
+                this.setState({
+                    refresh: !this.state.refresh
+                })
             });
         })
     }

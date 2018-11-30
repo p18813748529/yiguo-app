@@ -9,7 +9,8 @@ export function getHomeData(){
             data: {
                 body: {
                     operationType: 0,
-                    previewTime: ""
+                    previewTime: "",
+                    pageIndex: 0,
                 },
                 head: {
                     cityCode: "2",
@@ -23,7 +24,6 @@ export function getHomeData(){
         })
         .then(({data,status})=>{
             if(status===200){
-                console.log(data.Data)
                 resolve(data.Data);
             }
         });
