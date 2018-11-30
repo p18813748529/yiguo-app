@@ -20,7 +20,7 @@ export default class Sort extends Component{
         return(
           
             
-            <SortUI data={tabArr}  su={pageArr}   list={this.steAction.bind(this)} arrindex={setIndex}/>
+            <SortUI data={tabArr}  su={pageArr}   list={this.steAction.bind(this)} arrindex={setIndex}  paget={this.setClick.bind(this)}/>
    
 
            
@@ -35,6 +35,10 @@ export default class Sort extends Component{
               setIndex:index
             
          })
+    }
+    setClick(item){
+        console.log(item);
+        this.props.history.push("/list?"+item.CategoryId);
     }
     componentDidMount(){
       

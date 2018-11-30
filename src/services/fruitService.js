@@ -58,7 +58,8 @@ export function getCommodityInfo(){
 }
 
 
-export function getFruiteList(){
+export function getFruiteList(CategoryId){
+    
     return(
         new Promise((resolve,reject)=>{
             http({
@@ -66,11 +67,15 @@ export function getFruiteList(){
                 method: 'POST',
                 data: {
                     Body: {
-                        CategoryCode: "",
-                        CategoryId: "05_channelhome",
-                        Keyword: "",
-                        PageIndex: 1,
-                        Sort: 4
+                      
+                        // CategoryCode: "",
+                        CategoryId:CategoryId
+                        
+                        // Keyword: "",
+                        // PageIndex: 1,
+                        // Sort: 4
+                        
+                        
                     },
                     Head: {
                         CityCode: "512",
@@ -79,13 +84,17 @@ export function getFruiteList(){
                         DistrictId: "29f9cd72-a77e-4fe1-b613-3af4298380a9",
                         LoginToken: "",
                         Token: ""
+                        
                     }
                 }
             })
+            
             .then(({data,status})=>{
                 if(status===200){
                     resolve(data.Data);
+
                 }
+              
             });
         })
     )
@@ -178,6 +187,7 @@ export function getGuess(){
         })
     })
 }
+//请求详情页数据
 
 export function getParticulars(){
    return new Promise((resolve,reject)=>{
@@ -187,8 +197,9 @@ export function getParticulars(){
                data:{
                    Body:'',
                    Head:{
-  
+                    
                     CityCode: "512",
+                   
                     CityId: "0540d74e-0ffb-4a3a-ab79-ec590dd49947",
                     DeviceId: "6f9db822fa0ebdb1265ef4d40cad71ab",
                     DistrictId: "3d93cd33-6973-4590-a95d-1669d31eb6fd",
@@ -208,7 +219,7 @@ export function getParticulars(){
             //请求成功
            
             resolve(data.Data.CategoryList);
-            console.log(data.Data.CategoryList)
+          
             
           })
           .catch((error) => {

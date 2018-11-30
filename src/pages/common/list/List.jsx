@@ -17,7 +17,9 @@ export default class List extends Component{
         )
     }
     componentDidMount(){
-        getFruiteList().then(data=>{
+        
+        let id=this.props.location.search.slice(1)
+        getFruiteList(id).then(data=>{
             console.log(data.CommodityList)
             this.setState({
                 fruitData: data.CommodityList
