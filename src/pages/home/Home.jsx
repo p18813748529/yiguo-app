@@ -7,7 +7,8 @@ export default class Home extends Component{
         super();
         this.state = {
             data: {},
-            refresh: false
+            refresh: false,
+            pageIndex: 0
         }
     }
     render(){
@@ -15,9 +16,36 @@ export default class Home extends Component{
         let dom = (<HomeUI data={data} search={this.searchAction.bind(this)}/>);
         return(
             <div id="home" ref="home">
-                <HomeUI data={data} refresh={refresh} search={this.searchAction.bind(this)}/>
+                <HomeUI data={data} loadMore={this.loadMore} refresh={refresh} search={this.searchAction.bind(this)}/>
             </div>
         )
+    }
+    loadMore = ()=>{
+        this.setState({
+            pageIndex: this.state.pageIndex+1
+        },()=>{
+            getHomeData(this.state.pageIndex)
+            .then(data=>{
+                let stataData = this.state.data;
+                let newData = {
+                    bulletComponentList: [
+                        ...stataData.bulletComponentList,
+                        ...data.bulletComponentList
+                    ],
+                    templateComponentList: [
+                        ...stataData.templateComponentList,
+                        ...data.templateComponentList
+                    ],
+                }
+                this.setState({
+                    data: newData
+                },()=>{
+                    this.setState({
+                        refresh: !this.state.refresh
+                    })
+                })
+            })
+        })
     }
     componentDidMount(){
         getHomeData()

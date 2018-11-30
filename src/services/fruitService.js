@@ -1,7 +1,7 @@
 import http from "../utils/http"
 import API from "../api"
 
-export function getHomeData(){
+export function getHomeData(pageIndex){
     return new Promise((resolve,reject)=>{
         http({
             url: API.HOME_API,
@@ -10,7 +10,7 @@ export function getHomeData(){
                 body: {
                     operationType: 0,
                     previewTime: "",
-                    pageIndex: 0,
+                    pageIndex: pageIndex || 0,
                 },
                 head: {
                     cityCode: "2",

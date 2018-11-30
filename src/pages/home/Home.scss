@@ -275,4 +275,90 @@
             }
         }
     }
+    .prolist {
+        .proitem {
+            position: relative;
+            height: 4.46rem;
+            padding: .32rem;
+            .pic {
+                float: left;
+                width: 4.5rem;
+                height: 4.5rem;
+                margin-right: .48rem;
+                position: relative;
+                a {
+                    img {
+                        height: 4.5rem;
+                        width: 100%;
+                    }
+                }
+            }
+            .info {
+                height: 3.3rem;
+                margin: .6rem 0;
+                position: relative;
+                .name {
+                    margin: 0 0 .24rem;
+                    a {
+                        font-size: .54rem;
+                        color: #000;
+                    }
+                }
+                .sub {
+                    margin: 0 0 .3rem;
+                    color: #8d8a8a;
+                }
+                .saletip {
+                    height: .6rem;
+                    span {
+                        height: .6rem;
+                        line-height: .6rem;
+                        padding: 0 .27rem;
+                        font-size: .42rem;
+                        display: inline-block;
+                        margin-right: .1rem;
+                        color: #45b575;
+                        border: 1px solid #45b575;
+                        border-radius: 1em;
+                    }
+                }
+                .price {
+                    position: absolute;
+                    bottom: 0;
+                    left: 4.98rem;
+                    font-size: 11px;
+                    color: #8d8a8a;
+                    strong {
+                        font-size: .6rem;
+                        margin-right: .1rem;
+                        font-weight: bold;
+                        color: #fb3d3d;
+                    }
+                }
+            }
+            &:after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                content: "";
+                -webkit-transform: scaleY(.5);
+                transform: scaleY(.5);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                background: #f4f4f4;
+            }
+        }
+        .blockwrap {
+            box-sizing: border-box;
+            background: #fff;
+            &:after {
+                display: block;
+                clear: both;
+                height: 0;
+                content: " ";
+            }
+        }
+    }
 }

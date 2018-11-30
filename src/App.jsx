@@ -16,10 +16,8 @@ export default class App extends Component{
     render(){
         return (
             <Router>
-            <div id="app">
-
+            <div id="app" ref="app">
                 <Switch>
-
                     <Route path="/" exact render={()=>{
                         return <Redirect to="/home"/>
                     }}/>

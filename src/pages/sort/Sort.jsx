@@ -21,10 +21,7 @@ export default class Sort extends Component{
           
             
             <SortUI data={tabArr}  su={pageArr}   list={this.steAction.bind(this)} arrindex={setIndex}/>
-   
 
-           
-               
             
         )
         
