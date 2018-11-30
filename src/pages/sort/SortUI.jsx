@@ -17,7 +17,7 @@ export default function(props){
                     {
                         props.data.map((item, index)=>{
                             return (
-                                <div key={item.CategoryId} className="swiper-slide" onClick={props.list.bind(this,index)}>
+                                <div key={item.CategoryId} className="swiper-slide" onClick={props.list.bind(this,index)}  style={{color:props.arrindex==index? '#11b57c' : "" ,height:props.arrindex==index? '42px' : "" ,background:props.arrindex==index? '#ffffff' : "",borderLeft:props.arrindex==index? '3px solid #11b57c' : ""}}> 
                                  <div className='CategoryName'>{item.CategoryName}</div>
                                 </div>
                             )
@@ -31,15 +31,23 @@ export default function(props){
                       
                         props.su.map((item, index)=>{
                             return (
-                                <div key={item.HighId} className="item-Cate">
+                                <div key={item.HighId} className="item-Cate" style={{display:props.arrindex==index? '' : "none"}} >
                                 
-                                 <div className='item-Childs'>
+                                 <div className='item-Childs' >
                                        { 
                                            
                                           item.Childs.map((item,index)=>{
                                             console.log(index)
                                                   return (
-                                                         <div className="name" key={index} style={{display:props.arrindex==index? '' : "none"}}>{item.CategoryName}</div>
+                                                         <div className="name" key={index} >
+                                                       
+                                                      
+                                                          <img src={item.PictureUrl}/>
+                                                         
+                                                        <div className="it-name">  {item.CategoryName}</div>
+                                                         </div>
+                                                         
+                                                    
                                                   )
                                           })
                                        }

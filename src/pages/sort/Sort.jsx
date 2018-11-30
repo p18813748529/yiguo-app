@@ -11,7 +11,7 @@ export default class Sort extends Component{
         this.state={
             tabArr:[],
             pageArr:[],
-            setIndex:''
+            setIndex:0
         }
     }
     render(){
