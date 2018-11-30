@@ -69,6 +69,23 @@ export default function(props){
                     </div>
                 </div>
             </div>
+            <div className="one-image pb pt">
+                <a href="javascript:;" className="link-img">
+                    <img src="https://img14.yiguoimg.com/d/items/2018/181128/9288734637794684_1125x274.jpg?w=1125&amp;h=274"/>
+                </a>
+            </div>
+            <div className="two-image clear">
+                <div className="link-img1">
+                    <a href="javascript:;">
+                        <img src="https://img09.yiguoimg.com/d/items/2018/181120/9288734293960052_658x419.jpg?w=658&amp;h=419"/>
+                    </a>
+                </div>
+                <div className="link-img1">
+                    <a href="javascript:;">
+                        <img src="https://img09.yiguoimg.com/d/items/2018/181120/9288734293992820_658x419.jpg?w=658&amp;h=419"/>
+                    </a>
+                </div>
+            </div>
         </div>
     )
 }

@@ -13,7 +13,7 @@ export default function http(options){
         method: options.method,
         ...obj,
         baseURL: API.SAT_HOST,
-        timeout: 8000,
+        timeout: 20000,
         headers: {
             'appName': '3000025'
         }
