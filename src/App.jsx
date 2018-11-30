@@ -6,6 +6,7 @@ import Sort from './pages/sort/Sort.jsx'
 import Eat from './pages/eat/Eat.jsx'
 import Car from './pages/car/Car.jsx'
 import Mine from './pages/mine/Mine.jsx'
+import List from './pages/common/list/List.jsx'
 import NotFind from './pages/NotFind.jsx'
 
 import './App.scss'
@@ -32,6 +33,8 @@ export default class App extends Component{
                     <Route path="/car"  component={Car}/>
 
                     <Route path="/mine"  component={Mine}/>
+
+                    <Route path="/list"  component={List}/>
 
                     <Route path="/404"  component={NotFind}/>
 

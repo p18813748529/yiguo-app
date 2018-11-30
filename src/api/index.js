@@ -7,6 +7,7 @@ const HOME_API = "/api/home/TemplateComponent/GetTemplateComponentInfo";
 
 const COMMODTYINFO_API = "/api/commodityapi/Commodity/GetCommodityInfo";
 
+const FRUITE_LIST_API = "api/commodityapi/Commodity/GetSearchList";
 // 吃饭吧
 const EAT_BANNERS_API = "/Home/GetMainBanners";
 const EAT_GLOBAL_API = "/Category/GetListByGlobalType";
@@ -23,6 +24,7 @@ export default {
     PRO_HOST,
     HOME_API,
     COMMODTYINFO_API,
+    FRUITE_LIST_API,
     EAT_BANNERS_API,
     EAT_GLOBAL_API,
     CAR_INFO_API,

@@ -57,6 +57,39 @@ export function getCommodityInfo(){
     })
 }
 
+
+export function getFruiteList(){
+    return(
+        new Promise((resolve,reject)=>{
+            http({
+                url: API.FRUITE_LIST_API,
+                method: 'POST',
+                data: {
+                    Body: {
+                        CategoryCode: "",
+                        CategoryId: "05_channelhome",
+                        Keyword: "",
+                        PageIndex: 1,
+                        Sort: 4
+                    },
+                    Head: {
+                        CityCode: "512",
+                        CityId: "0540d74e-0ffb-4a3a-ab79-ec590dd49947",
+                        DeviceId: "2747d6bf37e8910bf6c36993c2570212",
+                        DistrictId: "29f9cd72-a77e-4fe1-b613-3af4298380a9",
+                        LoginToken: "",
+                        Token: ""
+                    }
+                }
+            })
+            .then(({data,status})=>{
+                if(status===200){
+                    resolve(data.Data);
+                }
+            });
+        })
+    )
+}
 export function getEatBanners(){
     return new Promise((resolve,reject)=>{
         http({
