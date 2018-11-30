@@ -5,4 +5,12 @@ module.exports = function (app) {
         target: "https://b2capigateway.yiguo.com",
         changeOrigin: true
     }));
+    app.use(proxy('/Home', {
+        target: "http://article.m.yiguo.com",
+        changeOrigin: true
+    }));
+    app.use(proxy('/Category', {
+        target: "http://article.m.yiguo.com",
+        changeOrigin: true
+    }))
 };

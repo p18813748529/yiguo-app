@@ -1,5 +1,15 @@
 #home{
-    padding-top: 42px;
+    // padding-top: 42px;
+    // padding-bottom: 51px;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+    height: 100%;
+    .pb {
+        padding-bottom: .12rem;
+    }
+    .pt {
+        padding-top: .12rem;
+    }
     .first-screen-top {
         z-index: 100;
         position: fixed;
@@ -103,11 +113,11 @@
     }
     .first-screen-news {
         position: relative;
-        box-sizing: border-box;
-        height: 22px;
-        padding: 7px 10px 7px 110px;
-        background: #fff;
         font-size: 12px;
+        box-sizing: border-box;
+        height: 1.1rem;
+        padding: .22rem .32rem .22rem 3.35rem;
+        background: #fff;
         .swiper-container{
             width: 100%;
             height: 20px;
@@ -125,6 +135,144 @@
             height: 15px;
             background: url(//img06.yiguoimg.com/e/web/161222/018522/134216/news.png) no-repeat;
             background-size: 100% 100%;
+        }
+    }
+    .one-image{
+        .link-img {
+            display: inline-block;
+            background: #d6d6d7 url(../../assets/placeholder_140x140.png) no-repeat 50%;
+            width: 100%;
+            height: 4.5rem;
+            img{
+                width: 100%;
+                height: 4.5rem;
+            }
+        }
+    }
+    .two-image{
+        width: 100%;
+        height: 100%;
+        .link-img1 {
+            display: inline-block;
+            float: left;
+            box-sizing: border-box;
+            width: 50%;
+            height: 4.58rem;
+            a{
+                width: 100%;
+                height: 4.58rem;
+                display: block;
+                background: #d6d6d7 url(../../assets/placeholder_140x140.png) no-repeat 50%;
+                img {
+                    width: 100%;
+                    height: 4.58rem;
+                }
+            }
+        }
+    }
+    .group-floor {
+        width: 100%;
+        .floor-img{
+            width: 100%;
+            height: 7.2rem;
+            display: inline-block;
+            background: #d6d6d7 url(//img02.yiguo.com/e/web/150930/00982/163525/placeholder_140x140.png) no-repeat 50%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .product-list {
+            overflow: hidden;
+            width: 100%;
+            height: 6.1rem;
+            background: #fff;
+            .product-list-in {
+                overflow-x: scroll;
+                overflow-y: hidden;
+                box-sizing: border-box;
+                width: 100%;
+                height: 7rem;
+                padding: .32rem 0 .58rem .32rem;
+                white-space: nowrap;
+                .proitem {
+                    display: inline-block;
+                    .pic {
+                        position: relative;
+                        img {
+                            width: 3.5rem;
+                            height: 3.5rem;
+                        }
+                    }
+                    .info {
+                        box-sizing: border-box;
+                        width: 3.5rem;
+                        padding: .2rem .2rem 0;
+                        text-align: center;
+                        .name {
+                            font-size: .36rem;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            a {
+                                color: #333;
+                            }
+                        }
+                        .saletip {
+                            height: .5rem;
+                            padding: .22rem 0 0;
+                            span {
+                                display: inline-block;
+                                height: .46rem;
+                                line-height: .5rem;
+                                margin-right: .1rem;
+                                padding: 0 .2rem;
+                                color: #45b575;
+                                border: 1px solid #45b575;
+                                border-radius: 1em;
+                            }
+                        }
+                        .price {
+                            margin-top: .22rem;
+                            font-size: 11px;
+                            color: #8d8a8a;
+                            strong {
+                                margin-right: .1rem;
+                                font-size: .36rem;
+                                font-weight: bold;
+                                color: #fb3d3d;
+                                font-size: .36rem;
+                            }
+                        }
+                    }
+                }
+                .more {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    display: inline-block;
+                    width: 1.32rem;
+                    height: 4.88rem;
+                    .hot {
+                        position: absolute;
+                        top: 50%;
+                        right: .32rem;
+                        width: .4rem;
+                        margin-top: -1.2rem;
+                        white-space: normal;
+                        font-size: .36rem;
+                        color: #8d8a8a;
+                        i {
+                            display: inline-block;
+                            width: .43rem;
+                            height: .43rem;
+                            margin-top: .12rem;
+                            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArCAYAAADhXXHAAAAABGdBT…2ErXqH7dPmXAqGzQOvshGrtdGLTxjLCFnJMcJoD1GEE8Z/AbWUqQa1uD13AAAAAElFTkSuQmCC) no-repeat;
+                            background-size: 100% 100%;
+                        }
+                    }
+                }
+            }
         }
     }
 }

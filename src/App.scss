@@ -13,9 +13,16 @@ html, body, #root, #app{
 }
 html{
     font-size: 33.3333px;
+    background: #f4f4f4;
 }
 li{
     list-style: none;
+}
+b,strong{
+    font-weight: normal;
+}
+em,i{
+    font-style: normal;
 }
 .clear_fix:after{
 	content: "";
@@ -25,7 +32,14 @@ li{
 	visibility: hidden;
 	clear: both;
 }
+.elli {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 #app{
+    font-size: 12px;
+    position: relative;
     .tabs-wrap{
         z-index: 99;
         position: fixed;
@@ -118,17 +132,13 @@ li{
     }
 }
 #home{
-    background: palegoldenrod;
 }
 #sort{
     background: palegreen;
 }
 #eat{
-    background: paleturquoise;
 }
 #car{
-    background: palevioletred;
 }
 #mine{
-    // background: peru;
 }
