@@ -56,28 +56,92 @@ export function getCommodityInfo(){
         })
     })
 }
-// import axios from "axios"
-// axios({
-//     url: "/api/commodityapi/Commodity/GetCommodityInfo",
-//     method: "POST",
-//     data: {
-//         Body: {
-//             CommodityCode: "1522580",
-//             CommodityId: ""
-//         },
-//         Head: {
-//             CityCode: "2",
-//             CityId: "eabbe02f-59e0-46e6-90e7-cd8a89dbb98f",
-//             DeviceId: "8993206abde1a662fc850c7d31a3007b",
-//             DistrictId: "c1153b9b-b21e-4761-9daf-99735a87f8d8",
-//             LoginToken: "",
-//             MobileOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
-//             Token: ""
-//         }
-//     },
-//     baseURL: "http://localhost:3000",
-//     timeout: 8000,
-//     headers: {
-//         'appName': '3000025'
-//     }
-// });
+
+export function getEatBanners(){
+    return new Promise((resolve,reject)=>{
+        http({
+            url: API.EAT_BANNERS_API,
+            method: "POST"
+        })
+        .then(({data,status})=>{
+            if(status==200){
+                let {Banners} = data.RspData.data.AdCategory37;
+                resolve(Banners);
+            }
+        })
+    })
+}
+
+export function getEatGlobal(){
+    return new Promise((resolve,reject)=>{
+        http({
+            url: API.EAT_GLOBAL_API,
+            method: "POST",
+            data: {
+                PageIndex: 1,
+                PageSize: 5,
+                Refresh: 1543484640692
+            }
+        })
+        .then(({data,status})=>{
+            if(status==200){
+                resolve(data.RspData.ArticleList);
+            }
+        })
+    })
+}
+
+export function getCarInfo(){
+    return new Promise((resolve,reject)=>{
+        http({
+            url: API.CAR_INFO_API,
+            method: "POST",
+            data: {
+                Body: {
+                    CouponId: ""
+                },
+                Head: {
+                    CityCode: "2",
+                    CityId: "eabbe02f-59e0-46e6-90e7-cd8a89dbb98f",
+                    DeviceId: "8993206abde1a662fc850c7d31a3007b",
+                    DistrictId: "c1153b9b-b21e-4761-9daf-99735a87f8d8",
+                    LoginToken: "",
+                    MobileOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+                    Token: ""
+                }
+            }
+        }).then(({data,status})=>{
+            if(status==200){
+                let {OperationShopCartGroups,ShopCartGroups} = data.Data;
+                resolve({OperationShopCartGroups,ShopCartGroups})
+            }
+        })
+    })
+}
+
+export function getGuess(){
+    return new Promise((resolve,reject)=>{
+        http({
+            url: API.GET_GUESS_API,
+            method: "POST",
+            data: {
+                Body: {
+                    GuessRecommendType: 1
+                },
+                Head: {
+                    CityCode: "2",
+                    CityId: "eabbe02f-59e0-46e6-90e7-cd8a89dbb98f",
+                    DeviceId: "8993206abde1a662fc850c7d31a3007b",
+                    DistrictId: "c1153b9b-b21e-4761-9daf-99735a87f8d8",
+                    LoginToken: "",
+                    MobileOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+                    Token: ""
+                }
+            }
+        }).then(({data,status})=>{
+            if(status==200){
+                resolve(data.Data.CommodityList)
+            }
+        })
+    })
+}

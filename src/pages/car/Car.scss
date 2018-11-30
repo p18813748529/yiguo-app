@@ -1,3 +1,406 @@
 #car{
-    
+    padding-top: 98px;
+    padding-bottom: 51px;
+    .cart-login{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1.32rem;
+        background: #fff;
+        line-height: 1.32rem;
+        font-size: .42rem;
+        color: #808080;
+        text-align: center;
+        z-index: 100;
+        a{
+            position: relative;
+            display: inline-block;
+            width: 1.8rem;
+            height: .72rem;
+            margin: 0 0 0 .42rem;
+            line-height: .72rem;
+            color: #808080;
+            &.line-all{
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 200%;
+                    height: 200%;
+                    border: 1px solid #ddd;
+                    box-sizing: border-box;
+                    transform: scale(0.5);
+                    transform-origin: 0 0;
+                }
+            }
+        }
+    }
+    .cart-express{
+        position: fixed;
+        top: 1.32rem;
+        left: 0;
+        width: 100%;
+        height: 1.32rem;
+        padding: 0 0 0 .32rem;
+        box-sizing: border-box;
+        background: #fff9eb;
+        line-height: 1.32rem;
+        font-size: .38rem;
+        color: #d3b162;
+        z-index: 100;
+        .sale-top{
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 1px;
+                -webkit-transform: scaleY(0.5);
+                transform: scaleY(0.5);
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                background: #d3b162;
+            }
+        }
+    }
+    .goods {
+        padding: 0 0 0px;
+        color: #333;
+        .group {
+            position: relative;
+            .saleGroup {
+                position: relative;
+                margin-bottom: .3rem;
+                background: #fff;
+                .one {
+                    position: relative;
+                    padding: .32rem 0 .32rem 1.22rem;
+                    .check {
+                        position: absolute;
+                        top: .32rem;
+                        left: 0;
+                        width: 1.22rem;
+                        height: .54rem;
+                        padding: 1.08rem 0;
+                        text-align: center;
+                        i{
+                            display: inline-block;
+                            width: .6rem;
+                            height: .6rem;
+                            background: url(//img06.yiguoimg.com/d/web/180119/01641/141347/check1.png) no-repeat;
+                            background-size: 100%;
+                            &.active {
+                                background-image: url(//img06.yiguoimg.com/d/web/180508/01316/175209/check2.png);
+                            }
+                        }
+                    }
+                    .img {
+                        position: absolute;
+                        left: 1.22rem;
+                        top: .32rem;
+                        width: 2.7rem;
+                        height: 2.7rem;
+                        img {
+                            display: block;
+                            width: 2.7rem;
+                            height: 2.7rem;
+                        }
+                    }
+                    .text {
+                        padding: 0 1.9rem 0 3rem;
+                        h2 {
+                            height: 1.12rem;
+                            line-height: .56rem;
+                            font-size: .42rem;
+                            font-weight: normal;
+                        }
+                        .tag {
+                            height: .56rem;
+                            padding: .2rem 0 .1rem;
+                        }
+                        p {
+                            height: .72rem;
+                            line-height: .72rem;
+                            font-size: .34rem;
+                            color: #ccc;
+                            b{
+                                font-size: .42rem;
+                            }
+                        }
+                    }
+                    .del {
+                        position: absolute;
+                        right: .5rem;
+                        top: .42rem;
+                        width: .48rem;
+                        height: .5rem;
+                        i {
+                            display: block;
+                            width: .48rem;
+                            height: .5rem;
+                            background: url(//img07.yiguoimg.com/d/web/180119/01642/141511/del.png) no-repeat;
+                            background-size: 100%;
+                        }
+                    }
+                    .limit {
+                        position: absolute;
+                        right: .5rem;
+                        top: 1.8rem;
+                        line-height: .4rem;
+                        font-size: 11px;
+                    }
+                    .num {
+                        position: absolute;
+                        right: .5rem;
+                        top: 2.3rem;
+                        width: 2.6rem;
+                        height: .72rem;
+                        .add {
+                            float: left;
+                            position: relative;
+                            width: .72rem;
+                            height: .72rem;
+                            i{
+                                position: absolute;
+                                left: .21rem;
+                                top: .21rem;
+                                width: .33rem;
+                                height: .33rem;
+                                background: url(//img07.yiguoimg.com/d/web/180119/01642/141511/add2.png) no-repeat;
+                                background-size: 100%;
+                            }
+                        }
+                        .cut{
+                            float: left;
+                            position: relative;
+                            width: .72rem;
+                            height: .72rem;
+                            i {
+                                position: absolute;
+                                left: .21rem;
+                                top: .21rem;
+                                width: .33rem;
+                                height: .33rem;
+                                background: url(//img06.yiguoimg.com/d/web/180226/01311/172807/cut2.png) no-repeat;
+                                background-size: 100%;
+                                &.active{
+                                    background-image: url(//img07.yiguoimg.com/d/web/180226/01311/172807/cut1.png);
+                                }
+                            }
+                        }
+                        
+                        .input {
+                            float: left;
+                            position: relative;
+                            width: 1.16rem;
+                            height: .72rem;
+                            line-height: .72rem;
+                            color: #333;
+                            text-align: center;
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 1px;
+                                background: #ddd;
+                                transform: scaleY(0.5);
+                                transform-origin: 0 0; 
+                            }
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                width: 100%;
+                                height: 1px;
+                                background: #ddd;
+                                transform: scaleY(0.5);
+                                transform-origin: 0 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .saleall {
+        position: relative;
+        margin: 0 0 .3rem;
+        background: #fff;
+        dl {
+            position: relative;
+            padding: .41rem .5rem .41rem 2.3rem;
+            font-size: .38rem;
+            dt {
+                position: absolute;
+                left: 0;
+                top: .41rem;
+                width: 2.3rem;
+                text-align: center;
+                .tag {
+                    display: inline-block;
+                    font-size: .38rem;
+                    padding: 0.1rem 0.06rem 0.08rem;
+                    border-radius: 0.12rem 0 0.12rem 0;
+                    background: #11B57C;
+                    line-height: .38rem;
+                    color: #fff;
+                }
+            }
+            dd {
+                height: .5rem;
+                padding: .1rem 0 0;
+                line-height: .5rem;
+                &:nth-child(2) {
+                    padding-top: 0;
+                }
+                &.pd {
+                    position: relative;
+                    padding-right: 1.82rem;
+                    span {
+                        position: absolute;
+                        right: 0;
+                        top: .1rem;
+                    }
+                }
+                &.ri {
+                    font-size: 11px;
+                    color: #808080;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .guess {
+        position: relative;
+        margin: 0 0 .3rem;
+        background: #fff;
+        .title {
+            position: relative;
+            height: 1.65rem;
+            line-height: 1.65rem;
+            font-size: .48rem;
+            color: #000;
+            text-align: center;
+            h2 {
+                position: relative;
+                display: inline-block;
+                padding: 0 .18rem;
+                font-size: .48rem;
+                font-weight: normal;
+                color: #333;
+                &:after {
+                    content: "";
+                    display: block;
+                    width: .7rem;
+                    height: .09rem;
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -.04rem;
+                    background: url(//img05.yiguoimg.com/d/web/180508/01318/181423/decoration-left@3x.png) top left no-repeat;
+                    background-size: auto 100%;
+                    right: -.7rem;
+                    transform: rotate(180deg);
+                }
+                &:before {
+                    left: -.7rem;
+                }
+            }
+        }
+        .list {
+            position: relative;
+            padding: .1rem .19rem .74rem;
+            .one {
+                float: left;
+                position: relative;
+                width: 50%;
+                padding: .16rem .53rem;
+                box-sizing: border-box;
+                .img {
+                    width: 4.96rem;
+                    height: 4.96rem;
+                    img {
+                        display: block;
+                        width: 4.96rem;
+                        height: 4.96rem;
+                    }
+                }
+                .text {
+                    h2 {
+                        height: 1.12rem;
+                        line-height: .56rem;
+                        font-size: .42rem;
+                        font-weight: normal;
+                    }
+                    p {
+                        height: .8rem;
+                        line-height: .8rem;
+                        font-size: 11px;
+                        color: #808080;
+                        b {
+                            font-size: .42rem;
+                        }
+                    }
+                }
+                .btn {
+                    position: absolute;
+                    right: .53rem;
+                    bottom: .16rem;
+                    a {
+                        display: block;
+                        width: .8rem;
+                        height: .8rem;
+                        background: url(//img05.yiguoimg.com/d/web/180508/01311/150610/add.png) no-repeat;
+                        background-size: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .red {
+        color: #fb3d3d;
+    }
+    .line-all:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+    }
+    .line-top:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 1px;
+        background: #ddd;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+    .line-bottom:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: #ddd;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+    }
 }
