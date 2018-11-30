@@ -11,7 +11,7 @@ export default function(props){
                             banners.map(item=>{
                                 return (
                                     <li key={item.BannerId}>
-                                        <a target="_blank" id={"ad_" + item.BannerId} href={item.LinkUrl} title="">
+                                        <a id={"ad_" + item.BannerId} title="">
                                             <img className="lazy icon1" src={item.PictureUrl}
                                                 id={"ArtPic_" + item.id} data-original={item.PictureUrl}
                                                 alt={item.BannerName}/>
@@ -29,7 +29,7 @@ export default function(props){
                 list.map(item=>{
                     return (
                         <div key={item.EfruitArticleId} className="title open-article" id={'rptIndexArt_' + item.EfruitArticleId} pageindex="1" rownum={item.RowNum}>
-                            <a target="_blank" className="border-color"
+                            <a className="border-color"
                                 categoryid={item.OtherCategoryId} title={item.EfruitArticleTitle}>
                                 <div className="title-in">
                                     <div className="img-box">
