@@ -8,14 +8,32 @@ export default class Eat extends Component{
         this.state = {
             banners: [],
             list: [],
-            refresh: false
+            globalPageIndex: 1,
+            PageSize: 5,
+            canLoadMore: true
         }
     }
     render(){
-        let {banners,list,refresh} = this.state;
+        let {banners,list} = this.state;
         return(
-            <EatUI data = {{banners,list,refresh}}/>
+            <EatUI data = {{banners,list,loadMore:this.loadMore}}/>
         )
+    }
+    loadMore = ()=>{
+        if(this.state.canLoadMore){
+            this.state.canLoadMore = false;
+            getEatGlobal(++this.state.globalPageIndex)
+            .then(articleList=>{
+                let canLoadMore = false;
+                if(articleList.PageCount>articleList.PageIndex){
+                    canLoadMore = true
+                }
+                this.setState({
+                    list: [...this.state.list,...articleList.List],
+                    canLoadMore
+                });
+            })
+        }
     }
     componentDidMount(){
         getEatBanners()
@@ -24,15 +42,15 @@ export default class Eat extends Component{
                 banners
             })
         })
-        getEatGlobal()
+        getEatGlobal(this.state.globalPageIndex)
         .then(articleList=>{
-            console.log(articleList.List)
+            let canLoadMore = false;
+            if(articleList.PageCount>articleList.PageIndex){
+                canLoadMore = true
+            }
             this.setState({
-                list: articleList.List
-            },()=>{
-                this.setState({
-                    refresh: !this.state.refresh
-                })
+                list: articleList.List,
+                canLoadMore
             });
         })
     }

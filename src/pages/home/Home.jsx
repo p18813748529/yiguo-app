@@ -8,44 +8,50 @@ export default class Home extends Component{
         this.state = {
             data: {},
             refresh: false,
-            pageIndex: 0
+            pageIndex: 0,
+            canLoadMore: true
         }
     }
     render(){
-        let {data,refresh} = this.state;
+        let {data,refresh,canLoadMore} = this.state;
         let dom = (<HomeUI data={data} search={this.searchAction.bind(this)}/>);
         return(
             <div id="home" ref="home">
-                <HomeUI data={data} loadMore={this.loadMore} refresh={refresh} search={this.searchAction.bind(this)}/>
+                <HomeUI data={{...data,canLoadMore,loadMore:this.loadMore,search:this.searchAction.bind(this)}}/>
             </div>
         )
     }
     loadMore = ()=>{
-        this.setState({
-            pageIndex: this.state.pageIndex+1
-        },()=>{
-            getHomeData(this.state.pageIndex)
-            .then(data=>{
-                let stataData = this.state.data;
-                let newData = {
-                    bulletComponentList: [
-                        ...stataData.bulletComponentList,
-                        ...data.bulletComponentList
-                    ],
-                    templateComponentList: [
-                        ...stataData.templateComponentList,
-                        ...data.templateComponentList
-                    ],
-                }
-                this.setState({
-                    data: newData
-                },()=>{
+        if(this.state.canLoadMore){
+            this.setState({
+                pageIndex: this.state.pageIndex+1,
+                canLoadMore: false
+            },()=>{
+                getHomeData(this.state.pageIndex)
+                .then(data=>{
+                    let stataData = this.state.data;
+                    let canLoadMore = false;
+                    if(data.commonInfo.pageCnt-1>this.state.pageIndex){
+                        canLoadMore = true
+                    }
+                    let newData = {
+                        bulletComponentList: [
+                            ...stataData.bulletComponentList,
+                            ...data.bulletComponentList
+                        ],
+                        templateComponentList: [
+                            ...stataData.templateComponentList,
+                            ...data.templateComponentList
+                        ],
+                        commonInfo: data.commonInfo
+                    }
                     this.setState({
-                        refresh: !this.state.refresh
+                        data: newData,
+                        canLoadMore
                     })
                 })
             })
-        })
+        }
     }
     componentDidMount(){
         getHomeData()
@@ -53,15 +59,24 @@ export default class Home extends Component{
             this.setState({
                 data: data
             },()=>{
-                new window.Swiper('.swiper-container', {
-                    autoplay: true,//可选选项，自动滑动
+                new window.Swiper('.swiper-container-banner', {
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },//可选选项，自动滑动
                     pagination: {
                         el: '.swiper-pagination',
+                        clickable: true,
                     },
                     loop: true
                 })
-                this.setState({
-                    refresh: !this.state.refresh
+                new window.Swiper('.swiper-container-news', {
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },//可选选项，自动滑动
+                    loop: true,
+                    direction : 'vertical',
                 })
             })
         })

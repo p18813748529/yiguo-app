@@ -67,7 +67,7 @@ export function getFruiteList(){
                 data: {
                     Body: {
                         CategoryCode: "",
-                        CategoryId: "05_channelhome",
+                        CategoryId: "1c95feae-bbe3-461f-bf4f-ef3ca80d2a93",
                         Keyword: "",
                         PageIndex: 1,
                         Sort: 4
@@ -105,14 +105,14 @@ export function getEatBanners(){
     })
 }
 
-export function getEatGlobal(){
+export function getEatGlobal(PageIndex,PageSize){
     return new Promise((resolve,reject)=>{
         http({
             url: API.EAT_GLOBAL_API,
             method: "POST",
             data: {
-                PageIndex: 1,
-                PageSize: 5,
+                PageIndex: PageIndex||1,
+                PageSize: PageSize||5,
                 Refresh: 1543484640692
             }
         })

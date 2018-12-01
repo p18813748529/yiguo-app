@@ -39,16 +39,13 @@ export default function(props){
                                           item.Childs.map((item,index)=>{
                                             console.log(index)
                                                   return (
-                                                         <div className="name" key={index} >
-                                                       
+                                                         <div className="name" key={index}>
                                                       
                                                           <img src={item.PictureUrl}/>
                                                          
                                                         <div className="it-name">  {item.CategoryName}</div>
                                                          </div>
-                                                         
-                                                    
-                                                  )
+                                                )
                                           })
                                        }
                                  </div>

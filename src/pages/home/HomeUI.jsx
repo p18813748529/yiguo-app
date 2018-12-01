@@ -1,24 +1,13 @@
 import React from "react"
 import Scroll from "../../components/scroll"
 export default function(props){
-    let {bulletComponentList,commonInfo,templateComponentList} = props.data;
-    let carouselPictures = [],
-        adPictures = [],
-        navComponentList = [],
-        fastReportsList = [],
-        commoditysComponentList
-    if(templateComponentList){
-        carouselPictures = templateComponentList[0].carouselPictures || [];
-        adPictures = templateComponentList[0].adPictures || [];
-        navComponentList = templateComponentList[0].navComponentList || [];
-        fastReportsList = templateComponentList[0].fastReportsList || [];
-        commoditysComponentList = templateComponentList[0].commoditysComponentList
-    }else{
+    let {bulletComponentList,commonInfo,templateComponentList,loadMore,search} = props.data;
+    if(!templateComponentList){
         templateComponentList = []
     }
     return (
         <div className="content">
-            <div className="first-screen-top" onClick={props.search}>
+            <div className="first-screen-top" onClick={search}>
                 <div className="first-screen-search">
                     <a href="javascript:;" className="btn"></a>
                 </div>
@@ -27,58 +16,63 @@ export default function(props){
                     <i className="arrow"></i>
                 </a>
             </div>
-            <Scroll loadMore={props.loadMore} refresh={props.refresh} style={{top:"42px",bottom:"51px"}} dom={(
+            <Scroll loadMore={loadMore} style={{top:"42px",bottom:"51px"}} dom={(
                 <div>
-                    <div className="first-screen-banner">
-                        <div className="swiper-container swiper-container-banner">
-                            <div className="swiper-wrapper">
-                                {
-                                    carouselPictures.map((item,index)=>{
-                                        return (
-                                            <div key={index} className='swiper-slide'>
-                                                <img src={item.pictureUrl}/>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <div className="swiper-pagination swiper-pagination-bullets">
-                            </div>
-                        </div>
-                    </div>
-                    <div className="first-screen-ad">
-                        <img src={adPictures[0]&&adPictures[0].pictureUrl}/>
-                    </div>
-                    <div className="first-screen-menu clear_fix">
-                        {
-                            navComponentList.map((item,index)=>{
-                                return (
-                                    <a key={index} href="javascript:;" className="one">
-                                        <i>
-                                            <img src={item.pictureUrl}/>
-                                        </i>
-                                        <p>{item.navName}</p>
-                                    </a>
-                                )
-                            })
-                        }
-                    </div>
-                    <div className="first-screen-news"><i className="title"></i>
-                        <div className="swiper-container swiper-container-news">
-                            <div className="swiper-wrapper">
-                                {
-                                    fastReportsList.map((item,index)=>{
-                                        return (
-                                            <div key={index} className="swiper-slide">{item.fastReportTitle}</div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-                    </div>
                     {
                         templateComponentList.map((item,index)=>{
-                            if(item.componentBase.checkCodeName=="onelineoneimg"){
+                            if(item.componentBase.checkCodeName=="firstscreen"){
+                                return (
+                                    [
+                                        <div className="first-screen-banner">
+                                            <div className="swiper-container swiper-container-banner">
+                                                <div className="swiper-wrapper">
+                                                    {
+                                                        item.carouselPictures.map((item,index)=>{
+                                                            return (
+                                                                <div key={index} className='swiper-slide'>
+                                                                    <img src={item.pictureUrl}/>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                                <div className="swiper-pagination swiper-pagination-bullets">
+                                                </div>
+                                            </div>
+                                        </div>,
+                                        <div className="first-screen-ad">
+                                            <img src={item.adPictures[0]&&item.adPictures[0].pictureUrl}/>
+                                        </div>,
+                                        <div className="first-screen-menu clear_fix">
+                                            {
+                                                item.navComponentList.map((item,index)=>{
+                                                    return (
+                                                        <a key={index} href="javascript:;" className="one">
+                                                            <i>
+                                                                <img src={item.pictureUrl}/>
+                                                            </i>
+                                                            <p>{item.navName}</p>
+                                                        </a>
+                                                    )
+                                                })
+                                            }
+                                        </div>,
+                                        <div className="first-screen-news"><i className="title"></i>
+                                            <div className="swiper-container swiper-container-news">
+                                                <div className="swiper-wrapper">
+                                                    {
+                                                        item.fastReportsList.map((item,index)=>{
+                                                            return (
+                                                                <div key={index} className="swiper-slide">{item.fastReportTitle}</div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ]
+                                )
+                            }else if(item.componentBase.checkCodeName=="onelineoneimg"){
                                 let arr = item.adPictures.map((item,index)=>{
                                     return (
                                         <div key={index} className="one-image pb pt">
@@ -108,9 +102,9 @@ export default function(props){
                             }else if(item.componentBase.checkCodeName=="floor"){
                                 return (
                                     <div key={index} className="group-floor">
-                                        <a href="javascript:;" className="floor-img">
-                                            <img  src={item.adPictures[0].pictureUrl+"?w=1125&amp;h=652"}/>
-                                        </a>
+                                        {item.adPictures&&(<a href="javascript:;" className="floor-img">
+                                            <img src={item.adPictures[0].pictureUrl+"?w=1125&amp;h=652"}/>
+                                        </a>)}
                                         <div className="product-list clear_fix">
                                             <div className="product-list-in">
                                                 {
@@ -151,8 +145,8 @@ export default function(props){
                                                             <div className="proitem">
                                                                 <div className="pic"><a href="javascript:;"><img src={proitem.pictureUrl}/></a></div>
                                                                 <div className="info">
-                                                                    <p className="name"><a href="javascript:;">{proitem.commodityName}</a></p>
-                                                                    <p className="sub">{proitem.subTitle}</p>
+                                                                    <p className="name elli"><a href="javascript:;">{proitem.commodityName}</a></p>
+                                                                    <p className="sub  elli">{proitem.subTitle}</p>
                                                                     <div className="saletip"><span>{proitem.saleSlogan}</span></div>
                                                                     <div className="price"><strong>¥{proitem.commodityPrice}</strong>{proitem.commoditySpec}
                                                                     </div>
@@ -167,7 +161,52 @@ export default function(props){
                                     
                                 )
                             }
+                            else if(item.componentBase.checkCodeName=="onelinetwoproduct"){
+                                return (
+                                    <div key={index} className="prolist2 pt">
+                                    <div className="blockwrap">
+                                        <div className="tt">
+                                            <h3>{item.componentBase.customComponentName}</h3>
+                                        </div>
+                                        <ul>
+                                            {
+                                                item.commoditysComponentList.map((proitem,index)=>{
+                                                    return (
+                                                        <li key={index}>
+                                                            <div className="proitem">
+                                                                <div className="pic">
+                                                                    <a href="javascript:;">
+                                                                        <img src={proitem.pictureUrl}/>
+                                                                    </a>
+                                                                </div>
+                                                                <div className="info">
+                                                                    <p className="name"><a href="javascript:;">{proitem.commodityName}</a></p>
+                                                                    <div className="saletip"><span>{proitem.saleSlogan}</span></div>
+                                                                    <div className="price"><strong>¥{proitem.commodityPrice}</strong>{proitem.commoditySpec}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                                )
+                            }
                         })
+                    }
+                    {
+                        commonInfo?(
+                            commonInfo.pageCnt-1>commonInfo.pageIndex ? 
+                            <p className="pagefooter pt pb">数据加载中...</p>
+                            :
+                            (<div className="pagefooter pt pb">
+                                <p>沪IPC备09008015号</p><p>上海易果电子商务有限公司</p>
+                            </div>)
+                        )
+                        : ""
                     }
                 </div>
             )}/>
