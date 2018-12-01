@@ -46,7 +46,6 @@
     .banner{
       width: 100%;
       height: 100%;
-    
       display: flex;
       justify-content: space-between;
    
@@ -61,6 +60,7 @@
       .swiper-slide{
          .swiper-slide:active{
             color: #11b57c;
+            
          }
         height: 42px;
         .CategoryName{
@@ -77,8 +77,8 @@
         top: 34px;
         overflow-y: scroll;
         overflow-x: hidden;
-      height: 100%;
- 
+        height: 100%;
+        background: #fff;
         .arr-page{
            height: 79%;
           .item-Cate{

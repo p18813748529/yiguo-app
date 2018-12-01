@@ -37,10 +37,9 @@ export default function(props){
                                        { 
                                            
                                           item.Childs.map((item,index)=>{
-                                            console.log(index)
+                                            
                                                   return (
-                                                         <div className="name" key={index}>
-                                                      
+                                                         <div className="name" key={index}   onClick={props.paget.bind(this,item)} >
                                                           <img src={item.PictureUrl}/>
                                                          
                                                         <div className="it-name">  {item.CategoryName}</div>
