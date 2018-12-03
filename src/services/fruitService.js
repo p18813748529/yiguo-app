@@ -1,23 +1,26 @@
 import http from "../utils/http"
 import API from "../api"
 
-export function getHomeData(pageIndex){
+export function getHomeData(cityId,districtId,cityCode,pageIndex,publishTime){
+    let time = new Date();
+    time = time.toLocaleString();
+    time = time.replace(/[\u4e00-\u9fa5]{2}/,"");
     return new Promise((resolve,reject)=>{
         http({
             url: API.HOME_API,
             method: "POST",
             data: {
                 body: {
-                    operationType: 0,
                     previewTime: "",
                     pageIndex: pageIndex || 0,
+                    homePageId: "55a2d0a1-98ab-43e9-90c8-825a54c6f06b",
+                    operationType: pageIndex>0?1:0,
+                    publishTime: publishTime || ""
                 },
                 head: {
-                    cityCode: "2",
-                    cityId: "eabbe02f-59e0-46e6-90e7-cd8a89dbb98f",
-                    districtId: "c1153b9b-b21e-4761-9daf-99735a87f8d8",
-                    loginToken: "",
-                    token: "",
+                    cityCode,
+                    cityId,
+                    districtId,
                     version: "h5"
                 }
             }
@@ -59,7 +62,6 @@ export function getCommodityInfo(){
 
 
 export function getFruiteList(CategoryId){
-    
     return(
         new Promise((resolve,reject)=>{
             http({
@@ -183,8 +185,55 @@ export function getGuess(){
         })
     })
 }
-//请求详情页数据
 
+export function getCityList(){
+    return new Promise((resolve,reject)=>{
+        http({
+            url: API.CITY_LIST_API,
+            method: "POST",
+            data: {
+                Body: {
+
+                },
+                Head: {
+                    DeviceId: "8993206abde1a662fc850c7d31a3007b",
+                    LoginToken: "",
+                    Token: ""
+                }
+            }
+        })
+        .then(({data,status})=>{
+            let {CityList,HotCityList} = data.Data;
+            resolve({cityList: CityList,hotCityList: HotCityList[0].CityList});
+        })
+    })
+}
+
+export function getCityArea(CityId){
+    return new Promise((resolve,reject)=>{
+        http({
+            url: API.CITY_AREA_API,
+            method: "POST",
+            data: {
+                Body: {
+                    CityId
+                },
+                Head: {
+                    DeviceId: "8993206abde1a662fc850c7d31a3007b",
+                    LoginToken: "",
+                    Token: ""
+                }
+            }
+        })
+        .then(({data,status})=>{
+            if(status===200){
+                resolve(data.Data.DistrictList);
+            }
+        })
+    })
+}
+
+//请求详情页数据
 export function getParticulars(){
    return new Promise((resolve,reject)=>{
            http({

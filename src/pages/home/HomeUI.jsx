@@ -1,18 +1,18 @@
 import React from "react"
 import Scroll from "../../components/scroll"
 export default function(props){
-    let {bulletComponentList,commonInfo,templateComponentList,loadMore,search} = props.data;
+    let {commonInfo,templateComponentList,loadMore,searchAction,cityAction,AreaName} = props.data;
     if(!templateComponentList){
         templateComponentList = []
     }
     return (
         <div className="content">
-            <div className="first-screen-top" onClick={search}>
-                <div className="first-screen-search">
+            <div className="first-screen-top">
+                <div className="first-screen-search" onClick={searchAction}>
                     <a href="javascript:;" className="btn"></a>
                 </div>
-                <a className="first-screen-adress">
-                    北京
+                <a className="first-screen-adress" onClick={cityAction}>
+                    {AreaName}
                     <i className="arrow"></i>
                 </a>
             </div>
@@ -23,7 +23,7 @@ export default function(props){
                             if(item.componentBase.checkCodeName=="firstscreen"){
                                 return (
                                     [
-                                        <div className="first-screen-banner">
+                                        item.carouselPictures.length>0&&(<div className="first-screen-banner">
                                             <div className="swiper-container swiper-container-banner">
                                                 <div className="swiper-wrapper">
                                                     {
@@ -39,9 +39,9 @@ export default function(props){
                                                 <div className="swiper-pagination swiper-pagination-bullets">
                                                 </div>
                                             </div>
-                                        </div>,
+                                        </div>),
                                         <div className="first-screen-ad">
-                                            <img src={item.adPictures[0]&&item.adPictures[0].pictureUrl}/>
+                                            {item.adPictures&&<img src={item.adPictures[0]&&item.adPictures[0].pictureUrl}/>}
                                         </div>,
                                         <div className="first-screen-menu clear_fix">
                                             {

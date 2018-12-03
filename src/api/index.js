@@ -18,6 +18,11 @@ const GET_GUESS_API = "/api/commodityapi/Commodity/GetGuessRecommentCommodity";
 
 //请求详情页
 const PRATICULARS_API='/api/commodityapi/Commodity/GetAllCategory';
+
+// 请求城市列表
+const CITY_LIST_API = "/api/user/Area/GetCityList";
+const CITY_AREA_API = "api/user/Area/GetDistrictList"
+
 export default {
     SAT_HOST,
     UAT_HOST,
@@ -29,5 +34,7 @@ export default {
     EAT_GLOBAL_API,
     CAR_INFO_API,
     GET_GUESS_API,
-    PRATICULARS_API
+    PRATICULARS_API,
+    CITY_LIST_API,
+    CITY_AREA_API
 }

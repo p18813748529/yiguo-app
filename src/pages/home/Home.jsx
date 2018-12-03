@@ -2,22 +2,28 @@ import React, {Component} from "react";
 import HomeUI from "./HomeUI"
 import "./Home.scss"
 import {getHomeData} from "../../services/fruitService"
+import store from "../../store"
 export default class Home extends Component{
     constructor(props){
         super();
         this.state = {
             data: {},
-            refresh: false,
             pageIndex: 0,
-            canLoadMore: true
+            canLoadMore: true,
         }
     }
     render(){
-        let {data,refresh,canLoadMore} = this.state;
-        let dom = (<HomeUI data={data} search={this.searchAction.bind(this)}/>);
+        let {data,canLoadMore} = this.state;
+        let {AreaId,AreaName} = store.getState();
         return(
             <div id="home" ref="home">
-                <HomeUI data={{...data,canLoadMore,loadMore:this.loadMore,search:this.searchAction.bind(this)}}/>
+                <HomeUI data={{
+                    ...data,canLoadMore,
+                    loadMore:this.loadMore,
+                    searchAction:this.searchAction.bind(this),
+                    cityAction: this.cityAction.bind(this),
+                    AreaName
+                }}/>
             </div>
         )
     }
@@ -27,7 +33,8 @@ export default class Home extends Component{
                 pageIndex: this.state.pageIndex+1,
                 canLoadMore: false
             },()=>{
-                getHomeData(this.state.pageIndex)
+                let {AreaId,DistrictId,CityCode} = store.getState();
+                getHomeData(AreaId,DistrictId,CityCode,this.state.pageIndex,this.state.data.commonInfo.publishTime)
                 .then(data=>{
                     let stataData = this.state.data;
                     let canLoadMore = false;
@@ -54,7 +61,8 @@ export default class Home extends Component{
         }
     }
     componentDidMount(){
-        getHomeData()
+        let {AreaId,DistrictId,CityCode} = store.getState();
+        getHomeData(AreaId,DistrictId,CityCode)
         .then(data=>{
             this.setState({
                 data: data
@@ -83,5 +91,8 @@ export default class Home extends Component{
     }
     searchAction(){
         this.props.history.push("/sort");
+    }
+    cityAction(){
+        this.props.history.push("/city");
     }
 }
